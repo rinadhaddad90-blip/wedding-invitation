@@ -1,0 +1,530 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" );
+
+
+:root {
+    --cream: #f5eee4;
+    --beige: #e7d8c7;
+    --taupe: #a8927d;
+    --brown: #6f5a4d;
+    --dark-brown: #4e4037;
+    --white: #fffaf4;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+    color: var(--dark-brown);
+    background: var(--cream);
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ================= COVER ================= */
+
+.cover {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(168, 146, 125, 0.18),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(168, 146, 125, 0.18),
+            transparent 28%
+        ),
+        var(--cream);
+}
+
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 430px);
+    min-height: 620px;
+    padding: 70px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(111, 90, 77, 0.25);
+    background: rgba(255, 250, 244, 0.48);
+    box-shadow: 0 18px 50px rgba(78, 64, 55, 0.12);
+}
+
+
+.small-title {
+    margin-bottom: 22px;
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+
+.flower-symbol {
+    margin-bottom: 22px;
+    color: var(--taupe);
+    font-size: 34px;
+}
+
+
+.intro-text {
+    margin-bottom: 18px;
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+
+h1 {
+    color: var(--dark-brown);
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(58px, 16vw, 86px);
+    font-weight: 500;
+    line-height: 0.78;
+}
+
+
+h1 span {
+    display: block;
+    margin: 20px 0;
+    color: var(--taupe);
+    font-size: 42px;
+    font-weight: 400;
+}
+
+
+.date {
+    margin-top: 38px;
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+
+button {
+    margin-top: 48px;
+    padding: 14px 26px;
+    border: 1px solid var(--brown);
+    border-radius: 2px;
+    color: var(--white);
+    background: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+
+button:hover {
+    color: var(--brown);
+    background: transparent;
+}
+
+
+button:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+
+.decor {
+    position: absolute;
+    z-index: 1;
+    width: 210px;
+    height: 210px;
+    border: 1px solid rgba(111, 90, 77, 0.16);
+    border-radius: 50%;
+}
+
+
+.decor::before,
+.decor::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(111, 90, 77, 0.13);
+    border-radius: 50%;
+}
+
+
+.decor::before {
+    inset: 20px;
+}
+
+
+.decor::after {
+    inset: 42px;
+}
+
+
+.decor-top-left {
+    top: -95px;
+    left: -90px;
+}
+
+
+.decor-bottom-right {
+    right: -90px;
+    bottom: -95px;
+}
+
+
+/* ================= INVITATION CONTENT ================= */
+
+.invitation-content {
+    display: none;
+    min-height: 100vh;
+    padding: 90px 22px 30px;
+    text-align: center;
+    background: var(--cream);
+}
+
+
+.invitation-content.show {
+    display: block;
+    animation: fadeIn 1s ease;
+}
+
+
+.section-label {
+    margin-bottom: 18px;
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+
+.invitation-content h2 {
+    margin-bottom: 25px;
+    color: var(--dark-brown);
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(48px, 12vw, 76px);
+    font-weight: 500;
+    line-height: 0.9;
+}
+
+
+.welcome-message {
+    max-width: 430px;
+    margin: 0 auto 45px;
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* ================= COUNTDOWN ================= */
+
+.countdown-section {
+    max-width: 450px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 25px;
+}
+
+
+.countdown-box {
+    padding: 16px 5px;
+    border: 1px solid rgba(111, 90, 77, 0.25);
+    background: rgba(255, 250, 244, 0.55);
+}
+
+
+.countdown-box span {
+    display: block;
+    color: var(--dark-brown);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+}
+
+
+.countdown-box small {
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+
+/* ================= STORY ================= */
+
+.story-section {
+    max-width: 650px;
+    margin: 0 auto 70px;
+    padding: 0 15px;
+    color: var(--brown);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    line-height: 1.55;
+    text-align: center;
+}
+
+
+.story-section p {
+    margin-bottom: 24px;
+}
+
+
+.story-section p:last-child {
+    margin-bottom: 0;
+    color: var(--dark-brown);
+}
+
+
+/* ================= GALLERY ================= */
+
+.gallery-section {
+    max-width: 520px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+
+.gallery-section h3 {
+    margin-bottom: 25px;
+    color: var(--dark-brown);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 500;
+}
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+
+.gallery img {
+    width: 100%;
+    height: 230px;
+    display: block;
+    object-fit: cover;
+    border: 1px solid rgba(111, 90, 77, 0.2);
+    background: var(--beige);
+}
+
+
+.gallery img:first-child {
+    grid-column: span 2;
+    height: 300px;
+}
+
+
+/* ================= DETAILS ================= */
+
+.details-card {
+    max-width: 430px;
+    margin: 20px auto;
+    padding: 30px 20px;
+    border: 1px solid rgba(111, 90, 77, 0.25);
+    background: rgba(255, 250, 244, 0.5);
+}
+
+
+.detail-icon {
+    margin-bottom: 12px;
+    color: var(--taupe);
+    font-size: 30px;
+}
+
+
+.details-card h3 {
+    margin-bottom: 12px;
+    color: var(--dark-brown);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+.details-card p:not(.detail-icon) {
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+.map-button {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 12px 18px;
+    border: 1px solid var(--brown);
+    color: var(--white);
+    background: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+
+.map-button:hover {
+    color: var(--brown);
+    background: transparent;
+}
+
+
+.closing-message {
+    max-width: 400px;
+    margin: 50px auto 0;
+    color: var(--brown);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+
+/* ================= FOOTER ================= */
+
+.contact-footer {
+    max-width: 650px;
+    margin: 75px auto 0;
+    padding: 32px 20px 25px;
+    border-top: 1px solid rgba(111, 90, 77, 0.22);
+    text-align: center;
+}
+
+
+.designed-text {
+    margin-bottom: 10px;
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+
+.contact-name {
+    margin-bottom: 5px;
+    color: var(--dark-brown);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
+}
+
+
+.developer-title {
+    margin-bottom: 12px;
+    color: var(--taupe);
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.contact-phone {
+    color: var(--brown);
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+
+.contact-phone:hover {
+    color: var(--taupe);
+    text-decoration: underline;
+}
+
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 480px) {
+
+    .cover-content {
+        min-height: 570px;
+        padding: 50px 20px;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .countdown-box {
+        padding: 12px 3px;
+    }
+
+    .countdown-box span {
+        font-size: 28px;
+    }
+
+    .countdown-box small {
+        font-size: 8px;
+    }
+
+    .story-section {
+        font-size: 21px;
+        line-height: 1.5;
+    }
+
+    .gallery img {
+        height: 180px;
+    }
+
+    .gallery img:first-child {
+        height: 240px;
+    }
+
+}
